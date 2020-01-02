@@ -6,3 +6,12 @@ customer: ($ organization_canonical $)
 lambda_git_repository: git@github.com:pgasp/cycloid-sandbox.git
 lambda_git_ssh_key: ((git_config.ssh_key))
 lambda_git_branch: code
+
+# Aws access to use inside the pipeline
+aws_access_key: ((aws.access_key))
+aws_secret_key: ((aws.secret_key))
+aws_default_region: eu-west-3
+
+# AWS s3 bucket used for lambda release code
+lambda_release_bucket_name: ($ organization_canonical $)-deploy
+lambda_release_bucket_object_path: /($ project $)/($ environment $)/($ project $).zip
