@@ -31,8 +31,6 @@ groups:
     - terraform-plan
     - terraform-apply
     - functional-tests
-  - name: destroy
-    jobs:
     - terraform-destroy
 
 resource_types:
