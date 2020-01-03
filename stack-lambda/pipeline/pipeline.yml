@@ -31,6 +31,9 @@ groups:
     - terraform-plan
     - terraform-apply
     - functional-tests
+  - name: destroy
+    jobs:
+    - terraform-destroy
 
 resource_types:
   - name: terraform
@@ -270,3 +273,25 @@ jobs:
           params:
             message: Congrats !
             title: Successful deployment of ((project)) owl on ((env)) environment
+
+  - name: terraform-destroy
+    max_in_flight: 1
+    build_logs_to_retain: 10
+    plan:
+    - do:
+      - get: git_stack
+        passed: [terraform-apply]
+      - get: tfstate
+        passed: [terraform-apply]
+      - get: s3_lambda-release
+        passed: [terraform-apply]
+      - get: git_config
+        passed: [terraform-apply]
+      - *task-merge-stack-and-config
+      - put: tfstate
+        params:
+          env_name: ((env))
+          action: destroy
+          terraform_source: merged-stack/stack-lambda/terraform
+        get_params:
+          action: destroy
