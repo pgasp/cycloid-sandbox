@@ -279,8 +279,8 @@ jobs:
     - do:
       - get: git_stack
         passed: [terraform-apply]
-      - get: tfstate
-        passed: [terraform-apply]
+      - get: cycloid-events
+        passed: [functional-tests]
       - get: s3_lambda-release
         passed: [terraform-apply]
       - get: git_config
