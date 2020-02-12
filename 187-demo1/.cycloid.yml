@@ -1,0 +1,18 @@
+name: Demo1
+canonical: 187-demo1
+author: Pascal Gasp
+description: demo1
+type: stack
+image: ""
+keywords:
+- demo1
+- provider:aws
+technologies:
+- technology: stackcraft
+  version: "1"
+config:
+  pipeline:
+    pipeline:
+      path: pipeline/terraform-pipeline.yaml
+    variables:
+      path: pipeline/variables.sample.yaml
