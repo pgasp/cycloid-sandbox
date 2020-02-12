@@ -16,3 +16,7 @@ config:
       path: pipeline/terraform-pipeline.yaml
     variables:
       path: pipeline/variables.sample.yaml
+  terraform:
+    187-my_demo:
+      destination: ($ project $)/terraform/($ environment $)/187-my_demo.tf
+      path: terraform/187-my_demo.tf.sample

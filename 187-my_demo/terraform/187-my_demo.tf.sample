@@ -1,0 +1,9 @@
+module "tf-187-my_demo" {
+  source = "module-187-my_demo"
+
+  # env - type: string
+  # env = "[PLACEHOLDER]"
+
+  # project - type: string
+  # project = "[PLACEHOLDER]"
+}
